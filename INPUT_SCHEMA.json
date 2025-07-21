@@ -1,0 +1,41 @@
+{
+    "title": "Dental Keyword Scraper Input Schema",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+      "searchTerm": {
+        "title": "Search Term",
+        "type": "string",
+        "default": "dentists"
+      },
+      "location": {
+        "title": "Location",
+        "type": "string"
+      },
+      "zipCodes": {
+        "title": "Zip Codes",
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "zipPrefixes": {
+        "title": "Zip Prefixes",
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "keywords": {
+        "title": "Keywords",
+        "type": "array",
+        "items": { "type": "string" },
+        "minItems": 1
+      },
+      "maxResults": {
+        "title": "Max Results Per Location",
+        "type": "integer",
+        "default": 100,
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": ["keywords"]
+  }
+  
