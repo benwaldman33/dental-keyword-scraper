@@ -6,34 +6,62 @@
       "searchTerm": {
         "title": "Search Term",
         "type": "string",
-        "default": "dentists"
+        "default": "dentists",
+        "description": "The search term to use when searching Google Maps for dental practices",
+        "editor": "textfield"
+      },
+      "city": {
+        "title": "City",
+        "type": "string",
+        "description": "The city to filter results by (e.g., 'Springfield').",
+        "editor": "textfield"
+      },
+      "state": {
+        "title": "State",
+        "type": "string",
+        "description": "The two-letter state code to filter results by (e.g., 'VA').",
+        "editor": "textfield"
       },
       "location": {
-        "title": "Location",
-        "type": "string"
+        "title": "Location (legacy, optional)",
+        "type": "string",
+        "description": "(Optional, legacy) City/State/Region (e.g., 'Springfield, VA'). Use 'city' and 'state' fields above for best results.",
+        "editor": "textfield"
       },
       "zipCodes": {
         "title": "Zip Codes",
         "type": "array",
-        "items": { "type": "string" }
+        "description": "Array of specific zip codes to search within",
+        "editor": "stringList"
       },
       "zipPrefixes": {
         "title": "Zip Prefixes",
         "type": "array",
-        "items": { "type": "string" }
+        "description": "3-digit zip code prefixes that will generate full zip codes for searching",
+        "editor": "stringList"
       },
       "keywords": {
         "title": "Keywords",
         "type": "array",
-        "items": { "type": "string" },
-        "minItems": 1
+        "minItems": 1,
+        "description": "Required array of keywords to search for in dental practice websites",
+        "editor": "stringList"
       },
       "maxResults": {
         "title": "Max Results Per Location",
         "type": "integer",
         "default": 100,
         "minimum": 1,
-        "maximum": 500
+        "maximum": 500,
+        "description": "Maximum number of results to return per location (1-500)",
+        "editor": "number"
+      },
+      "locationFilterStrictness": {
+        "title": "Location Filter Strictness",
+        "type": "string",
+        "enum": ["city", "city_state", "city_state_zip"],
+        "default": "city_state_zip",
+        "description": "How strict should the address filtering be? (city, city+state, or city+state+zip)"
       }
     },
     "required": ["keywords"]

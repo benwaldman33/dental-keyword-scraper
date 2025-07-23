@@ -1,0 +1,13 @@
+{
+	"actorSpecification": 1,
+	"name": "dental-keyword-scraper",
+	"version": "0.1",
+	"buildTag": "latest",
+	"env": null,
+	"defaultRunOptions": {
+		"build": "latest",
+		"memoryMbytes": 2048,
+		"timeoutSecs": 600,
+		"diskMbytes": 512
+	}
+}
